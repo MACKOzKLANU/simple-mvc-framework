@@ -1,11 +1,11 @@
 <?php
 
-class Home {
+class Login {
     use Controller;
     
     public function index() {
 
-        $this->view('home');
+        $this->view('login');
     }
 }
 

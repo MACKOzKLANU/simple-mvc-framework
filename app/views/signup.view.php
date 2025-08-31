@@ -37,26 +37,34 @@
     
 <main class="form-signin">
   <form action="" method="post">
-    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <?php if(!empty($errors)):?>
+        <div class="alert alert-danger">
+        <?php
+            echo implode("<br>", $errors);
+        ?>
+      </div>
+      
+      <?php endif;?>
+    <h1 class="h3 mb-3 fw-normal">Create account</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
 
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input name="terms" type="checkbox" value="1"> Accept terms
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Create</button>
     <a href="<?php echo ROOT ?>">Home</a>
-    <a href="<?php echo ROOT ?>/signup">Signup</a>
+    <a href="<?php echo ROOT ?>/login">login</a>
+
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
   </form>
 </main>
