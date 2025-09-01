@@ -7,8 +7,8 @@ class User {
     protected $table = 'users';
 
     protected $allowedColumns = [
-        'name',
-        'age',
+        'email',
+        'password',
         
     ];
 
@@ -24,8 +24,11 @@ class User {
         }
 
         if(empty($data['password'])){
-            $this->errors['password'] = "password is required";
-        }
+            $this->errors['password'] = "Password is required";
+        
+        if(empty($data['terms'])){
+            $this->errors['terms'] = "Please accept the terms and conditions";
+        }}
 
         if(empty($this->errors)){
             return true;

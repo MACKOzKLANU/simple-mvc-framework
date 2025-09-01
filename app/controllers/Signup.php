@@ -4,15 +4,21 @@ class Signup {
     use Controller;
     
     public function index() {
+        $data = [];
         
-        $user = new User;
-        if($user->validate($_POST)){
+        if($_SERVER['REQUEST_METHOD'] == "POST") {
+        
+            $user = new User;
 
-            $user->insert($_POST);
-            redirect('home');
+            if($user->validate($_POST)){
+
+                $user->insert($_POST);
+                redirect('login');
+            }
+            $data['errors'] = $user->errors;
         }
 
-        $data['errors'] = $user->errors;
+        
         $this->view('signup', $data);
     }
 }

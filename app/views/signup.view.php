@@ -39,11 +39,10 @@
   <form action="" method="post">
       <?php if(!empty($errors)):?>
         <div class="alert alert-danger">
-        <?php
+          <?php
             echo implode("<br>", $errors);
-        ?>
-      </div>
-      
+          ?>
+        </div>
       <?php endif;?>
     <h1 class="h3 mb-3 fw-normal">Create account</h1>
 
