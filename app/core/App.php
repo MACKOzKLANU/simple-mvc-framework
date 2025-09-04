@@ -5,6 +5,7 @@ defined('ROOTPATH') OR exit('Access Denied!');
 class App {
     private $controller = 'Home';
     private $method     = 'index';
+    
     private function splitURL() {
         $URL = $_GET['url'] ?? 'home';
         $URL = explode("/", trim($URL, "/"));
