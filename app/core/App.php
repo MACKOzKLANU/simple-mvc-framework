@@ -19,6 +19,7 @@ class App {
         /** select controller **/
         $filename = "../app/controllers/" . ucfirst($URL[0]). ".php";
         if(file_exists($filename)) {
+
         require $filename;
         $this->controller = ucfirst($URL[0]);
         unset($URL[0]);
@@ -30,8 +31,9 @@ class App {
             $this->controller = "_404";
 
         }
-
-        $controller = new $this->controller;
+        
+        $mycontroller = '\Controller\\' . $this->controller;
+        $controller = new $mycontroller;
 
         /** select method **/
         if(!empty($URL[1])) {
